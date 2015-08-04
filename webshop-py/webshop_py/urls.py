@@ -3,14 +3,14 @@ Definition of urls for webshop_py.
 """
 
 from datetime import datetime
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 from app.forms import BootstrapAuthenticationForm
+from django.contrib import admin
 
 # Uncomment the next lines to enable the admin:
 # from django.conf.urls import include
 # from django.contrib import admin
 # admin.autodiscover()
-
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'app.views.home', name='home'),
@@ -36,8 +36,7 @@ urlpatterns = patterns('',
         name='logout'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
-)
+     url(r'^admin/', include(admin.site.urls)),)
