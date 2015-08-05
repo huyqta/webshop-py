@@ -11,10 +11,16 @@ class Category(models.Model):
     description = models.CharField(max_length=255, blank=True, verbose_name="Description")
 
     def parent_name(self):
-        return self.parent_id.cat_name
+        return self.parent_id
 
     parent_name.short_description = 'Parent Name'
 
+
+class Product(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    product_name = models.CharField(max_length=255, verbose_name="Name")
+    description = models.CharField(max_length=255, blank=True, verbose_name="Description")
+    price = models.DecimalField()
 #class Application(models.Model):
 #    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 #    applicant = models.ForeignKey('self', blank=True, null=True, on_delete=models.SET_NULL, verbose_name="Parent")
