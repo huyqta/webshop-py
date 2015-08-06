@@ -7,29 +7,37 @@ import uuid
 class Category(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     cat_name = models.CharField(max_length=255, verbose_name="Name")
-    parent_id = models.ForeignKey('self', blank=True, null=True, on_delete=models.SET_NULL, verbose_name="Parent")
+    parent_id = models.ForeignKey('self', verbose_name="Parent")
     description = models.CharField(max_length=255, blank=True, verbose_name="Description")
 
-    def parent_name(self):
-        return self.parent_id
+    def get_parent(obj):
+        return "%s"%(obj.parent_id.cat_name)
 
-    parent_name.short_description = 'Parent Name'
+    def __unicode__(self):
+        return u'%s' % (self.cat_name)
 
+class Unit(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    unit_name = models.CharField(max_length=255, verbose_name="Name")
+    description = models.CharField(max_length=255, blank=True, verbose_name="Description")
+
+    def __unicode__(self):
+        return u'%s' % (self.unit_name)
 
 class Product(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     product_name = models.CharField(max_length=255, verbose_name="Name")
     description = models.CharField(max_length=255, blank=True, verbose_name="Description")
-    price = models.DecimalField()
-#class Application(models.Model):
-#    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-#    applicant = models.ForeignKey('self', blank=True, null=True, on_delete=models.SET_NULL, verbose_name="Parent")
-#    text = models.CharField(max_length=255, blank=True, verbose_name="text")
+    price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="Price")
+    fk_category = models.ForeignKey(Category, verbose_name="Category")
+    fk_unit = models.ForeignKey(Unit, verbose_name="Unit")
 
-#    def applicant_name(self):
-#        return self.applicant.name
-#    applicant_name.short_description = 'Applicant Name'
+    
 
-#    def applicant_email(self):
-#        return self.applicant.email
-#    applicant_email.short_description = 'Applicant Email'
+class Image(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    image_url = models.CharField(max_length=255, verbose_name="Image url")
+    image_thumb_url = models.CharField(max_length=255, blank=True, verbose_name="Image thumb url")
+    is_default = models.BooleanField(verbose_name="Default image")
+    description = models.CharField(max_length=255, blank=True, verbose_name="Description")
+    fk_product = models.ForeignKey(Product, verbose_name="Product")
