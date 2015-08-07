@@ -1,15 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
 <html>
-<head><title></title></head>
-
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HuyQTA</title>
+    <link rel="stylesheet" href="{% static "content/css/bootstrap/bootstrap.min.css" %}"
+    <link rel="stylesheet" href="{% static "content/css/scss/webshop.css" %}"
+</head>
 <body>
-
+{% include "layout/header.html" %}
 {#{{ content }}#}
 {% if list_unit %}
     <ul>
         {% for unit in list_unit %}
-        <li> {{ unit.unit_name }} </li>
+            <li> {{ unit.unit_name }} </li>
         {% endfor %}
     </ul>
 {% endif %}
+
+{% include "layout/footer.html" %}
 </body>
 </html>
