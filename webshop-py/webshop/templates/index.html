@@ -3,7 +3,13 @@
 
 <body>
 
-{{ content }}
-
+{#{{ content }}#}
+{% if list_unit %}
+    <ul>
+        {% for unit in list_unit %}
+        <li> {{ unit.unit_name }} </li>
+        {% endfor %}
+    </ul>
+{% endif %}
 </body>
 </html>
