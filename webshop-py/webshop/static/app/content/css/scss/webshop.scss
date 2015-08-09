@@ -1,5 +1,6 @@
 @import "layout/header";
+@import "base/color";
 
 body{
-  background-color: #c0c0c0;
+  background-color: $body-color;
 }

@@ -6,7 +6,6 @@
         <option name="rootFolder" value="$MODULE_DIR$" />
         <option name="settingsModule" value="settings.py" />
         <option name="manageScript" value="manage.py" />
-        <option name="environment" value="&lt;map/&gt;" />
       </configuration>
     </facet>
   </component>
@@ -14,8 +13,10 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sass-stdlib" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
   </component>
 </module>
+
