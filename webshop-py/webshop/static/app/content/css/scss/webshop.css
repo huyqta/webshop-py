@@ -1,0 +1,50 @@
+.header {
+  background-color: #000;
+  color: #777; }
+  .header .header-content {
+    margin-top: 10px; }
+    .header .header-content a {
+      color: #777;
+      text-decoration: none; }
+
+.header-banner {
+  height: 120px;
+  background-color: #333;
+  color: #fff;
+  padding-top: 40px; }
+
+#search-box {
+  border: 1px #000 solid;
+  border-radius: 4px;
+  width: 350px; }
+  #search-box #search-textbox, #search-box button {
+    background: #303030;
+    border: none;
+    /* Good browsers universal rule */
+    outline: none;
+    /* safari and its variants  */
+    outline-offset: 0;
+    /* IE and its variants  */
+    -webkit-appearance: none;
+    /* Chrome and its variants  */
+    color: #fff; }
+    #search-box #search-textbox:focus, #search-box #search-textbox:active, #search-box button:focus, #search-box button:active {
+      outline-style: none;
+      box-shadow: none;
+      border-color: transparent; }
+
+.logo {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 5px; }
+
+.logo-des {
+  font-size: 12px;
+  bottom: -10px;
+  position: absolute;
+  letter-spacing: 3px; }
+
+body {
+  background-color: #fff; }
+
+/*# sourceMappingURL=webshop.css.map */

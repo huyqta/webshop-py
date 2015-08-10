@@ -94,7 +94,30 @@
 //
 //    var jssor_slider1 = new $JssorSlider$("slider1_container", options);
 //
+//    //responsive code begin
+//    //you can remove responsive code if you don't want the slider scales
+//    //while window resizes
+//    function ScaleSlider() {
+//        var parentWidth = $('#slider1_container').parent().width();
+//        if (parentWidth) {
+//            jssor_slider1.$ScaleWidth(parentWidth);
+//        }
+//        else
+//            window.setTimeout(ScaleSlider, 30);
+//    }
+//
+//    //Scale slider after document ready
+//    ScaleSlider();
+//
+//    //Scale slider while window load/resize/orientationchange.
+//    $(window).bind("load", ScaleSlider);
+//    $(window).bind("resize", ScaleSlider);
+//    $(window).bind("orientationchange", ScaleSlider);
+//    //responsive code end
+//
 //});
+
+
 ////responsive code begin
 ////you can remove responsive code if you don't want the slider scales while window resizes
 //function ScaleSlider() {
@@ -110,38 +133,80 @@
 //$(window).bind("resize", ScaleSlider);
 //$(window).bind("orientationchange", ScaleSlider);
 
+//$(window).load(function () {
+//    $('#slider').nivoSlider({
+//        effect: 'random',               // Specify sets like: 'fold,fade,sliceDown'
+//        slices: 15,                     // For slice animations
+//        boxCols: 8,                     // For box animations
+//        boxRows: 4,                     // For box animations
+//        animSpeed: 500,                 // Slide transition speed
+//        pauseTime: 3000,                // How long each slide will show
+//        startSlide: 0,                  // Set starting Slide (0 index)
+//        directionNav: true,             // Next & Prev navigation
+//        directionNavHide:false,         // Only show on hover
+//        controlNav: false,               // 1,2,3... navigation
+//        pauseOnHover: true,             // Stop animation while hovering
+//        manualAdvance: false,           // Force manual transitions
+//        prevText: '',                 // Prev directionNav text
+//        nextText: '',                 // Next directionNav text
+//        randomStart: false,             // Start on a random slide
+//        controlNavThumbs: false,        // Use thumbnails for Control Nav
+//        controlNavThumbsFromRel: false, // Use image rel for thumbs
+//        controlNavThumbsSearch: '.jpg', // Replace this with...
+//        controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+//        keyboardNav: true,              // Use left & right arrows
+//        captionOpacity: 1,              // Universal caption opacity
+//        beforeChange: function () {
+//        },     // Triggers before a slide transition
+//        afterChange: function () {
+//        },         // Triggers after a slide transition
+//        slideshowEnd: function () {
+//        },     // Triggers after all slides have been shown
+//        lastSlide: function () {
+//        },         // Triggers when last slide is shown
+//        afterLoad: function () {
+//        }         // Triggers when slider has loaded
+//    });
+//});
 $(window).load(function () {
-    $('#slider').nivoSlider({
-        effect: 'random',               // Specify sets like: 'fold,fade,sliceDown'
-        slices: 15,                     // For slice animations
-        boxCols: 8,                     // For box animations
-        boxRows: 4,                     // For box animations
-        animSpeed: 500,                 // Slide transition speed
-        pauseTime: 3000,                // How long each slide will show
-        startSlide: 0,                  // Set starting Slide (0 index)
-        directionNav: true,             // Next & Prev navigation
-        directionNavHide:false,         // Only show on hover
-        controlNav: false,               // 1,2,3... navigation
-        pauseOnHover: true,             // Stop animation while hovering
-        manualAdvance: false,           // Force manual transitions
-        prevText: '',                 // Prev directionNav text
-        nextText: '',                 // Next directionNav text
-        randomStart: false,             // Start on a random slide
-        controlNavThumbs: false,        // Use thumbnails for Control Nav
-        controlNavThumbsFromRel: false, // Use image rel for thumbs
-        controlNavThumbsSearch: '.jpg', // Replace this with...
-        controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
-        keyboardNav: true,              // Use left & right arrows
-        captionOpacity: 1,              // Universal caption opacity
-        beforeChange: function () {
-        },     // Triggers before a slide transition
-        afterChange: function () {
-        },         // Triggers after a slide transition
-        slideshowEnd: function () {
-        },     // Triggers after all slides have been shown
-        lastSlide: function () {
-        },         // Triggers when last slide is shown
-        afterLoad: function () {
-        }         // Triggers when slider has loaded
+    var owl = $('.owl-carousel');
+
+    owl.owlCarousel({
+        items: 1,
+        loop: true,
+        nav: true,
+        navRewind: true,
+        smartSpeed:450
+//        animateOut: 'fadeOutRight',
+//        animateIn: 'fadeInLeft'
+//        margin: 10,
+//        responsiveClass: true,
+//        responsive: {
+//            0: {
+//                items: 1,
+//                nav: true
+//            },
+//            600: {
+//                items: 3,
+//                nav: false
+//            },
+//            1000: {
+//                items: 5,
+//                nav: true,
+//                loop: false
+//            }
+//        }
     });
+
+
+    // Go to the next item
+    $('.owl-next').click(function () {
+        owl.trigger('next.owl.carousel');
+    })
+    // Go to the previous item
+    $('.owl-prev').click(function () {
+        // With optional speed parameter
+        // Parameters has to be in square bracket '[]'
+        owl.trigger('prev.owl.carousel');
+    })
 });
