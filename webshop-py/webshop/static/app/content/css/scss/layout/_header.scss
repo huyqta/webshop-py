@@ -1,0 +1,53 @@
+@import "../base/color";
+
+.header {
+  background-color: $header-menu-color;
+  color: $header-menu-text-color;
+  .header-content {
+    margin-top: 10px;
+    a {
+      color: $header-menu-text-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.header-banner {
+  height: 120px;
+  background-color: $header-banner-color;
+  color: $header-banner-text-color;
+  padding-top: 40px;
+}
+
+#search-box {
+  border: 1px $header-menu-color solid;
+  border-radius: 4px;
+  width: 350px;
+
+  #search-textbox, button {
+    background: #303030;
+    border: none; /* Good browsers universal rule */
+    outline: none; /* safari and its variants  */
+    outline-offset: 0; /* IE and its variants  */
+    -webkit-appearance: none; /* Chrome and its variants  */
+    color: $text-color;
+    &:focus, &:active {
+      outline-style: none;
+      box-shadow: none;
+      border-color: transparent;
+    }
+  }
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.logo-des {
+  font-size: 12px;
+  bottom: -10px;
+  position: absolute;
+  letter-spacing: 3px;
+}
