@@ -31,13 +31,25 @@
 {% include "layout/header.html" %}
 {% include "layout/slider.html" %}
 {#{{ content }}#}
-{% if list_unit %}
-    <ul>
-        {% for unit in list_unit %}
-            <li> {{ unit.unit_name }} </li>
-        {% endfor %}
-    </ul>
-{% endif %}
+<div class="container">
+    <div class="col-sm-3">
+        {% if list_category %}
+            <div class="list-group">
+                <a class="list-group-item active"> Category</a>
+                {% for cate in list_category %}
+                    <a href="#" class="list-group-item"> {{ cate.cat_name }} </a>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="col-sm-6">
+
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+</div>
+
 
 {% include "layout/footer.html" %}
 </body>
