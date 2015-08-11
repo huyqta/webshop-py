@@ -22,11 +22,11 @@ var browserSync = require('browser-sync');
 
 gulp.task('serve', function() {
     browserSync.init({
-        proxy: "localhost:8000"
+        proxy: "localhost:8000/webshop"
     });
 
     gulp.watch(['webshop/templates/layout/*.html'], browserSync.reload);
-    gulp.watch(['webshop/templates/*.html'], browserSync.reload);
+    gulp.watch(['webshop/templates/*.html'], browserSync.reload);unifying
     gulp.watch(['webshop/static/app/scripts/webshop/*.js'], browserSync.reload);
     gulp.watch(['webshop/static/app/content/css/scss/*.css'], browserSync.reload);
 });
