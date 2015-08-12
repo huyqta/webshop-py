@@ -22,7 +22,7 @@ var browserSync = require('browser-sync');
 
 gulp.task('serve', function() {
     browserSync.init({
-        proxy: "localhost:8000"
+        proxy: "localhost:8000/webshop"
     });
 
     gulp.watch(['webshop/templates/layout/*.html'], browserSync.reload);

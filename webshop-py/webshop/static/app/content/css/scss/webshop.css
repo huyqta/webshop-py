@@ -44,6 +44,9 @@
   position: absolute;
   letter-spacing: 3px; }
 
+.owl-carousel img {
+  max-height: 300px; }
+
 body {
   background-color: #fff; }
 

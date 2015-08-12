@@ -25,13 +25,17 @@ class Unit(models.Model):
         return u'%s' % (self.unit_name)
 
 class Discount(models.Model):
-    discount_name = models.CharField(max_length=255, verbose_name="Content name")
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    discount_name = models.CharField(max_length=255, verbose_name="Discount name")
     description = models.CharField(max_length=4000, blank=True, verbose_name="Description")
     start_date = models.DateTimeField(verbose_name="Start date")
     end_date = models.DateTimeField(verbose_name="End date")
     discount_type = models.IntegerField(verbose_name="Discount type")
     discount_value = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="Value")
     active = models.BooleanField(verbose_name="Active")
+
+    def __unicode__(self):
+        return u'%s' % (self.discount_name)
 
 class Product(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
