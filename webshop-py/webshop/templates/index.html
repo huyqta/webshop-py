@@ -35,29 +35,39 @@
     <div class="col-sm-3">
         {% if list_category %}
             <div class="list-group">
-            <a class="list-group-item active"> Category</a>
-            {% for cate in list_category %}
-                <a href="#" class="list-group-item"> {{ cate.cat_name }} </a>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        </div>
-        <div class="col-sm-6">
-            {% if list_product %}
-                <div class="list-group">
-                <a class="list-group-item active"> Category</a>
-                {% for product in list_product %}
-                    <a href="#" class="list-group-item"> {{ product.product_name }} </a>
-                {% endfor %}
+                <ul>
+                    <a class="list-group-item active"> Category</a>
+                    {% for cate in list_category %}
+                        <a href="#" class="list-group-item"> {{ cate.cat_name }} </a>
+                    {% endfor %}
                 </ul>
-            {% endif %}
             </div>
-            <div class="col-sm-3">
-
-            </div>
-        </div>
+        {% endif %}
     </div>
-
-    {% include "layout/footer.html" %}
+    <div class="col-sm-6">
+        {% if list_product %}
+            {% for product in list_product %}
+                <div class="col-sm-3">
+                    {{ product.product_name }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="col-sm-3">
+        {% if list_category %}
+            <div class="list-group">
+                <ul>
+                    <a class="list-group-item active"> Category</a>
+                    {% for cate in list_category %}
+                        <a href="#" class="list-group-item"> {{ cate.cat_name }} </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+</div>
+{% include "layout/footer.html" %}
 </body>
 </html>

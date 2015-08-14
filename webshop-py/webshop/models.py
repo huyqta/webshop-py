@@ -7,11 +7,11 @@ import uuid
 class Category(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     cat_name = models.CharField(max_length=255, verbose_name="Name")
-    parent_id = models.ForeignKey('self', verbose_name="Parent")
+    parent_id = models.ForeignKey('self', blank=True, null=True, verbose_name="Parent")
     description = models.CharField(max_length=4000, blank=True, verbose_name="Description")
 
     def get_parent(obj):
-        return "%s"%(obj.parent_id.cat_name)
+        return "%s"%(obj.parent_id)
 
     def __unicode__(self):
         return u'%s' % (self.cat_name)
